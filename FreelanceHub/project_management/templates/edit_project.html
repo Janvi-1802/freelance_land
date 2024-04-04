@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        background-color: rgba(0, 0, 0, 0.79) ;
+      }
+      .formabc{
+
+        margin-top: 100px;
+        font-size: larger;
+        text-align: center;
+        color: white;
+      }
+      
+    </style>
+</head>
+<body>
+  <div class="box1">
+    <form class="formabc" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %}
+          {{ message }}
+          {% endfor %}
+        </div>
+        <ul class="messages">
+          
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       
+        </ul>
+
+        {% endif %}
+
+
+  <label for="fname">Project title:</label>
+  <input type="text" id="fname" name="title"><br><br>
+  
+<label for="lname">Project discription:</label>
+  <input type="text" id="lname" name="dis"><br><br>
+
+  <!-- <label for="lname">project discription image:</label> -->
+  <!-- <input type="file" id="lname" name="dis_image"><br><br> -->
+
+  <!-- <label for="lname">project discription video:</label> -->
+  <!-- <input type="file" id="lname" name="dis_video"><br><br> -->
+
+  <label for="lname">Project amount</label>
+  <input type="text" id="lname" name="amount"><br><br>
+
+ 
+  <button type="submit">submit</button>
+
+
+ 
+    </form>
+  </div>
+</body>
+</html>

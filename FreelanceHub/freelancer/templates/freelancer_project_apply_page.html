@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for project</title>
+    <style>
+        body{
+          background-color: rgba(0, 0, 0, 0.79) ;
+        }
+        .formabc{
+  
+          margin-top: 100px;
+          font-size: larger;
+          text-align: center;
+          color: white;
+        }
+        
+      </style>
+</head>
+<body>
+    <form class="formabc" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %}
+          {{ message }}
+          {% endfor %}
+        </div>
+        <ul class="messages">
+          
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       
+        </ul>
+
+        {% endif %}
+
+        <label for="fname">Client Id:</label>
+        <input type="text" id="fname" name="cId"><br><br>
+        
+
+  <label for="fname">Project Id:</label>
+  <input type="text" id="fname" name="Id"><br><br>
+  
+  <label for="lname">Freelancer Username</label>
+  <input type="text" id="lname" name="username"><br><br>
+
+ 
+ 
+  <button type="submit">submit</button>
+
+
+ 
+    </form>
+</body>
+</html>
